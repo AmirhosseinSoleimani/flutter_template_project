@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-class NavbarScreen extends StatelessWidget {
+class MainScreen extends StatelessWidget {
   final StatefulNavigationShell child;
-  const NavbarScreen({required this.child, super.key});
+  const MainScreen({required this.child, super.key});
 
   @override
   Widget build(BuildContext context) {

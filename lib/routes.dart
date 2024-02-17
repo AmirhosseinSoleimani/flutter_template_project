@@ -1,11 +1,11 @@
 import 'package:eks_khedamtresan/features/authentication/presentation/screens/auth_screen.dart';
 import 'package:eks_khedamtresan/features/home/presentation/screens/home_screen.dart';
-import 'package:eks_khedamtresan/features/navbar/presentation/screens/navbar_screen.dart';
+import 'package:eks_khedamtresan/features/main/presentation/screens/navbar_screen.dart';
 import 'package:eks_khedamtresan/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class MyRoutes {
+class Routes {
   static final GlobalKey<NavigatorState> parentNavigatorKey =
   GlobalKey<NavigatorState>();
   static final GlobalKey<NavigatorState> homeTabNavigatorKey =
@@ -47,7 +47,7 @@ class MyRoutes {
             StatefulNavigationShell navigationShell,
             ) {
           return getPage(
-            child: NavbarScreen(
+            child: MainScreen(
               child: navigationShell,
             ),
             state: state,
