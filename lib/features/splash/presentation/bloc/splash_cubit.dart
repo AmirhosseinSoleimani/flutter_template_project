@@ -8,4 +8,6 @@ part 'splash_cubit.freezed.dart';
 @injectable
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(const SplashState.initial());
+  bool loggedIn = true; //TODO: get from storage and navigate to login/main page based on this value
+
 }

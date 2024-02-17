@@ -1,6 +1,7 @@
 import 'package:eks_khedamtresan/features/authentication/presentation/screens/auth_screen.dart';
 import 'package:eks_khedamtresan/features/home/presentation/screens/home_screen.dart';
-import 'package:eks_khedamtresan/features/main/presentation/screens/navbar_screen.dart';
+import 'package:eks_khedamtresan/features/main/presentation/screens/main_screen.dart';
+import 'package:eks_khedamtresan/features/profile/presentation/screens/profile_screen.dart';
 import 'package:eks_khedamtresan/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -9,6 +10,8 @@ class Routes {
   static final GlobalKey<NavigatorState> parentNavigatorKey =
   GlobalKey<NavigatorState>();
   static final GlobalKey<NavigatorState> homeTabNavigatorKey =
+  GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> profileTabNavigatorKey =
   GlobalKey<NavigatorState>();
 
   static final routes = GoRouter(
@@ -30,10 +33,24 @@ class Routes {
             navigatorKey: homeTabNavigatorKey,
             routes: [
               GoRoute(
-                path: '/home',
+                path: '/main',
                 pageBuilder: (context, GoRouterState state) {
                   return getPage(
                     child: const HomeScreen(),
+                    state: state,
+                  );
+                },
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: profileTabNavigatorKey,
+            routes: [
+              GoRoute(
+                path: '/profile',
+                pageBuilder: (context, GoRouterState state) {
+                  return getPage(
+                    child: const ProfileScreen(),
                     state: state,
                   );
                 },
