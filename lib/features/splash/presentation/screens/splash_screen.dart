@@ -26,7 +26,7 @@ class _SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<_SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(seconds: 2), () {
       if(getIt<SplashCubit>().loggedIn){
         context.go('/main');
       }else{
