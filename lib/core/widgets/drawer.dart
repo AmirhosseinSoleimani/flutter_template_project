@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:utility/utility.dart';
 
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({super.key});
@@ -13,22 +14,17 @@ class DrawerMenu extends StatelessWidget {
             decoration: BoxDecoration(
               color: Theme.of(context).primaryColor,
             ),
-            child:  Text('Drawer Header',style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),),
+            child:  Text('Drawer Header',style: context.textTheme.titleLarge!.copyWith(color: Colors.white),),
           ),
           ListTile(
-            title: const Text('Item 1',style: optionStyle,),
+            title: Text('Item 1',style: context.textTheme.titleMedium,),
             leading: const Icon(Icons.backup_rounded),
-            onTap: () {
-
-            },
+            onTap: () {},
           ),
           ListTile(
-            title: const Text('Item 2',style: optionStyle,),
+            title: Text('Item 2',style: context.textTheme.titleMedium,),
             leading: const Icon(Icons.add_a_photo_sharp),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
+            onTap: () {},
           ),
         ],
       ),

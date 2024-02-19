@@ -7,6 +7,11 @@ extension ContextExtension on BuildContext {
   double get height => MediaQuery.of(this).size.height;
 }
 
+extension ThemeExtension on BuildContext{
+  TextTheme get textTheme => Theme.of(this).textTheme;
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
+}
+
 extension Responsive on BuildContext {
   T responsive<T>(
       T defaultVal, {
