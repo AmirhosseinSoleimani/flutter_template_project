@@ -3,6 +3,7 @@ import 'package:eks_khedamtresan/routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'core/resources/theme/app_theme_data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -18,12 +19,10 @@ class App extends StatelessWidget {
       darkTheme: _darkTheme,
       child: MaterialApp.router(
         debugShowCheckedModeBanner: kDebugMode,
-        // localizationsDelegates: AppLocalizations.localizationsDelegates,
-        // supportedLocales: AppLocalizations.supportedLocales,
-        locale: const Locale("en", "EN"),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        locale: const Locale("en", "US"),
         routerConfig: Routes.routes,
-        //TODO: add Theme here
-        //theme: ,
       ),
     );
   }
