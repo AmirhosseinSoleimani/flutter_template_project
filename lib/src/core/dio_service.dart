@@ -19,7 +19,8 @@ class DioService {
     if (httpClientAdapter != null) _dio.httpClientAdapter = httpClientAdapter;
   }
 
-  Future<BaseSingleResponse<R>> get<R>({
+
+  Future<BaseSingleResponse<R>> getSingle<R>({
     required Function(Map<String, dynamic>) create,
     required String endpoint,
     JSON? queryParams,
@@ -39,7 +40,27 @@ class DioService {
     return BaseSingleResponse<R>.fromJson(response.data!,create);
   }
 
-  Future<BaseSingleResponse<R>> post<R>({
+  Future<BaseListResponse<R>> getList<R>({
+    required Function(Map<String, dynamic>) create,
+    required String endpoint,
+    JSON? queryParams,
+    Options? options,
+    CacheOptions? cacheOptions,
+    CancelToken? cancelToken,
+  }) async {
+    final response = await _dio.get<JSON>(
+      endpoint,
+      queryParameters: queryParams,
+      options: _mergeDioAndCacheOptions(
+        dioOptions: options,
+        cacheOptions: cacheOptions,
+      ),
+      cancelToken: cancelToken ?? _cancelToken,
+    );
+    return BaseListResponse<R>.fromJson(response.data!,create);
+  }
+
+  Future<BaseSingleResponse<R>> postSingle<R>({
     required Function(Map<String, dynamic>) create,
     required String endpoint,
     JSON? data,
@@ -55,7 +76,23 @@ class DioService {
     return BaseSingleResponse<R>.fromJson(response.data!,create);
   }
 
-  Future<BaseSingleResponse<R>> patch<R>({
+  Future<BaseListResponse<R>> postList<R>({
+    required Function(Map<String, dynamic>) create,
+    required String endpoint,
+    JSON? data,
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
+    final response = await _dio.post<JSON>(
+      endpoint,
+      data: data,
+      options: options,
+      cancelToken: cancelToken ?? _cancelToken,
+    );
+    return BaseListResponse<R>.fromJson(response.data!,create);
+  }
+
+  Future<BaseSingleResponse<R>> patchSingle<R>({
     required Function(Map<String, dynamic>) create,
     required String endpoint,
     JSON? data,
@@ -71,21 +108,52 @@ class DioService {
     return BaseSingleResponse<R>.fromJson(response.data!,create);
   }
 
-  // Future<BaseSingleResponse<R>> delete<R>({
-  //   required Function(Map<String, dynamic>) create,
-  //   required String endpoint,
-  //   JSON? data,
-  //   Options? options,
-  //   CancelToken? cancelToken,
-  // }) async {
-  //   final response = await _dio.delete<JSON>(
-  //     endpoint,
-  //     data: data,
-  //     options: options,
-  //     cancelToken: cancelToken ?? _cancelToken,
-  //   );
-  //   return BaseSingleResponse<R>.fromJson(response.data!);
-  // }
+  Future<BaseListResponse<R>> patchList<R>({
+    required Function(Map<String, dynamic>) create,
+    required String endpoint,
+    JSON? data,
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
+    final response = await _dio.patch<JSON>(
+      endpoint,
+      data: data,
+      options: options,
+      cancelToken: cancelToken ?? _cancelToken,
+    );
+    return BaseListResponse<R>.fromJson(response.data!,create);
+  }
+
+  Future<BaseSingleResponse<R>> deleteSingle<R>({
+    required Function(Map<String, dynamic>) create,
+    required String endpoint,
+    JSON? data,
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
+    final response = await _dio.delete<JSON>(
+      endpoint,
+      data: data,
+      options: options,
+      cancelToken: cancelToken ?? _cancelToken,
+    );
+    return BaseSingleResponse<R>.fromJson(response.data!);
+  }
+  Future<BaseListResponse<R>> deleteList<R>({
+    required Function(Map<String, dynamic>) create,
+    required String endpoint,
+    JSON? data,
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
+    final response = await _dio.delete<JSON>(
+      endpoint,
+      data: data,
+      options: options,
+      cancelToken: cancelToken ?? _cancelToken,
+    );
+    return BaseListResponse<R>.fromJson(response.data!);
+  }
 
   Options? _mergeDioAndCacheOptions({
     Options? dioOptions,
