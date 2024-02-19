@@ -1,3 +1,4 @@
+import 'package:eks_khedamtresan/core/widgets/drawer.dart';
 import 'package:eks_khedamtresan/di/di_setup.dart';
 import 'package:eks_khedamtresan/features/main/presentation/bloc/main_cubit.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class MainScreen extends StatelessWidget {
         valueListenable: cubit.notifier,
         builder: (BuildContext context, value, _) {
           return Scaffold(
+            drawer: const DrawerMenu(),
             appBar: AppBar(
               title: const Text('Main Screen'),
             ),
