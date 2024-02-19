@@ -137,7 +137,7 @@ class DioService {
       options: options,
       cancelToken: cancelToken ?? _cancelToken,
     );
-    return BaseSingleResponse<R>.fromJson(response.data!);
+    return BaseSingleResponse<R>.fromJson(response.data!,create);
   }
   Future<BaseListResponse<R>> deleteList<R>({
     required Function(Map<String, dynamic>) create,
@@ -152,7 +152,7 @@ class DioService {
       options: options,
       cancelToken: cancelToken ?? _cancelToken,
     );
-    return BaseListResponse<R>.fromJson(response.data!);
+    return BaseListResponse<R>.fromJson(response.data!,create);
   }
 
   Options? _mergeDioAndCacheOptions({
