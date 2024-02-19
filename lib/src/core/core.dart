@@ -1,0 +1,1 @@
+export 'package:eks_khedamtresan/src/core/widgets/drawer.dart';

@@ -1,5 +1,5 @@
-import 'package:eks_khedamtresan/app.dart';
-import 'package:eks_khedamtresan/di/di_setup.dart';
+import 'package:eks_khedamtresan/src/app.dart';
+import 'package:eks_khedamtresan/src/di/di_setup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
