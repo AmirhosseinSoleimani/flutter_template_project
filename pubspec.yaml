@@ -17,20 +17,27 @@ dependencies:
   go_router: ^13.2.0
   get_it: ^7.6.7
   injectable: ^2.3.2
+  freezed_annotation: ^2.4.1
+  dio: ^5.4.1
+  dio_cache_interceptor: ^3.5.0
+  json_serializable: ^6.7.1
+  json_annotation: ^4.8.1
+  logger: ^2.0.2+1
+  equatable: ^2.0.5
 
   ui_kit:
     path: ./packages/ui_kit
   utility:
     path: ./packages/utility
-  dio: ^5.4.1
-  dio_cache_interceptor: ^3.5.0
-  json_serializable: ^6.7.1
-  json_annotation: ^4.8.1
+  network_module:
+    path: ./packages/network_module
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  injectable_generator:
   build_runner: ^2.4.8
 
 flutter:

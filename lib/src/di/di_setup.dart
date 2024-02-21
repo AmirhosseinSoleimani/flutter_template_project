@@ -7,5 +7,6 @@ final GetIt getIt = GetIt.instance;
 @InjectableInit(
   initializerName: r'$initGetIt',
   preferRelativeImports: true,
-  asExtension: false,)
+  asExtension: false,
+)
 void configureDependencies() => $initGetIt(getIt);
