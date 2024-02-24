@@ -14,14 +14,15 @@ class HomeCubit extends Cubit<HomeState> {
   final UserRepository userRepository;
 
 
-  void getUser() async{
-    final response = await userRepository.getUser();
-    if(response is Success) {
-      UserEntity userEntity = response.value as UserEntity;
-      print(userEntity.fullName);
-    } else if(response is Failure){
-      print(response.errorMessage);
+  void getUser() async {
+    emit(const HomeState.loading());
+    Result<UserEntity, String>? result = await userRepository.getUser();
+    if (result is Success<UserEntity, String>) {
+      final userEntity = result.value;
+      print(userEntity.mobileNumber);
+      emit(HomeState.successful(userEntity: userEntity));
+    } else if (result is Failure<UserEntity, String>) {
+      emit(HomeState.error(result.errorMessage));
     }
-
   }
 }

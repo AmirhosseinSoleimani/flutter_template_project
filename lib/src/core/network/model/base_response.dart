@@ -1,3 +1,6 @@
+import 'package:dio/dio.dart';
+import 'package:network_module/network_module.dart';
+
 class BaseResponse {
   final int? resultCode;
   final List<String>? failures;
@@ -44,11 +47,14 @@ class BaseSingleResponse<T> extends BaseResponse {
     this.data,
   });
 
-  factory BaseSingleResponse.fromJson(Map<String, dynamic> json) {
-    return BaseSingleResponse<T>(
-      resultCode: json['resultCode'],
+  factory BaseSingleResponse.fromJson(Map<String, dynamic> json, T Function(Map<String, dynamic>) fromJsonData) {
+    if (!json.containsKey('resultCode') || !json.containsKey('failures') || !json.containsKey('data')) {
+      throw const FormatException('Invalid BaseSingleResponse format');
+    }
+    return BaseSingleResponse(
+      resultCode: json['resultCode'] as int,
       failures: json['failures']?.cast<String>(),
-      data: json['data'] as T?,
+      data: fromJsonData(json['data']),
     );
   }
 }

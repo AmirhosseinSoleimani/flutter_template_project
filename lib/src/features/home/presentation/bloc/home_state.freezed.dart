@@ -20,21 +20,24 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() done,
+    required TResult Function(UserEntity userEntity) successful,
+    required TResult Function(String errorMessage) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? done,
+    TResult? Function(UserEntity userEntity)? successful,
+    TResult? Function(String errorMessage)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? done,
+    TResult Function(UserEntity userEntity)? successful,
+    TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +45,24 @@ mixin _$HomeState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Done value) done,
+    required TResult Function(_successful value) successful,
+    required TResult Function(_error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Done value)? done,
+    TResult? Function(_successful value)? successful,
+    TResult? Function(_error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Done value)? done,
+    TResult Function(_successful value)? successful,
+    TResult Function(_error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +125,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() done,
+    required TResult Function(UserEntity userEntity) successful,
+    required TResult Function(String errorMessage) error,
   }) {
     return initial();
   }
@@ -129,7 +136,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? done,
+    TResult? Function(UserEntity userEntity)? successful,
+    TResult? Function(String errorMessage)? error,
   }) {
     return initial?.call();
   }
@@ -139,7 +147,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? done,
+    TResult Function(UserEntity userEntity)? successful,
+    TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -153,7 +162,8 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Done value) done,
+    required TResult Function(_successful value) successful,
+    required TResult Function(_error value) error,
   }) {
     return initial(this);
   }
@@ -163,7 +173,8 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Done value)? done,
+    TResult? Function(_successful value)? successful,
+    TResult? Function(_error value)? error,
   }) {
     return initial?.call(this);
   }
@@ -173,7 +184,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Done value)? done,
+    TResult Function(_successful value)? successful,
+    TResult Function(_error value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -227,7 +239,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() done,
+    required TResult Function(UserEntity userEntity) successful,
+    required TResult Function(String errorMessage) error,
   }) {
     return loading();
   }
@@ -237,7 +250,8 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? done,
+    TResult? Function(UserEntity userEntity)? successful,
+    TResult? Function(String errorMessage)? error,
   }) {
     return loading?.call();
   }
@@ -247,7 +261,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? done,
+    TResult Function(UserEntity userEntity)? successful,
+    TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -261,7 +276,8 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Done value) done,
+    required TResult Function(_successful value) successful,
+    required TResult Function(_error value) error,
   }) {
     return loading(this);
   }
@@ -271,7 +287,8 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Done value)? done,
+    TResult? Function(_successful value)? successful,
+    TResult? Function(_error value)? error,
   }) {
     return loading?.call(this);
   }
@@ -281,7 +298,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Done value)? done,
+    TResult Function(_successful value)? successful,
+    TResult Function(_error value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -296,47 +314,76 @@ abstract class _Loading implements HomeState {
 }
 
 /// @nodoc
-abstract class _$$DoneImplCopyWith<$Res> {
-  factory _$$DoneImplCopyWith(
-          _$DoneImpl value, $Res Function(_$DoneImpl) then) =
-      __$$DoneImplCopyWithImpl<$Res>;
+abstract class _$$successfulImplCopyWith<$Res> {
+  factory _$$successfulImplCopyWith(
+          _$successfulImpl value, $Res Function(_$successfulImpl) then) =
+      __$$successfulImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserEntity userEntity});
 }
 
 /// @nodoc
-class __$$DoneImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$DoneImpl>
-    implements _$$DoneImplCopyWith<$Res> {
-  __$$DoneImplCopyWithImpl(_$DoneImpl _value, $Res Function(_$DoneImpl) _then)
+class __$$successfulImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$successfulImpl>
+    implements _$$successfulImplCopyWith<$Res> {
+  __$$successfulImplCopyWithImpl(
+      _$successfulImpl _value, $Res Function(_$successfulImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userEntity = null,
+  }) {
+    return _then(_$successfulImpl(
+      userEntity: null == userEntity
+          ? _value.userEntity
+          : userEntity // ignore: cast_nullable_to_non_nullable
+              as UserEntity,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$DoneImpl implements _Done {
-  const _$DoneImpl();
+class _$successfulImpl implements _successful {
+  const _$successfulImpl({required this.userEntity});
+
+  @override
+  final UserEntity userEntity;
 
   @override
   String toString() {
-    return 'HomeState.done()';
+    return 'HomeState.successful(userEntity: $userEntity)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DoneImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$successfulImpl &&
+            (identical(other.userEntity, userEntity) ||
+                other.userEntity == userEntity));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, userEntity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$successfulImplCopyWith<_$successfulImpl> get copyWith =>
+      __$$successfulImplCopyWithImpl<_$successfulImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() done,
+    required TResult Function(UserEntity userEntity) successful,
+    required TResult Function(String errorMessage) error,
   }) {
-    return done();
+    return successful(userEntity);
   }
 
   @override
@@ -344,9 +391,10 @@ class _$DoneImpl implements _Done {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? done,
+    TResult? Function(UserEntity userEntity)? successful,
+    TResult? Function(String errorMessage)? error,
   }) {
-    return done?.call();
+    return successful?.call(userEntity);
   }
 
   @override
@@ -354,11 +402,12 @@ class _$DoneImpl implements _Done {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? done,
+    TResult Function(UserEntity userEntity)? successful,
+    TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
-    if (done != null) {
-      return done();
+    if (successful != null) {
+      return successful(userEntity);
     }
     return orElse();
   }
@@ -368,9 +417,10 @@ class _$DoneImpl implements _Done {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Done value) done,
+    required TResult Function(_successful value) successful,
+    required TResult Function(_error value) error,
   }) {
-    return done(this);
+    return successful(this);
   }
 
   @override
@@ -378,9 +428,10 @@ class _$DoneImpl implements _Done {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Done value)? done,
+    TResult? Function(_successful value)? successful,
+    TResult? Function(_error value)? error,
   }) {
-    return done?.call(this);
+    return successful?.call(this);
   }
 
   @override
@@ -388,16 +439,169 @@ class _$DoneImpl implements _Done {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Done value)? done,
+    TResult Function(_successful value)? successful,
+    TResult Function(_error value)? error,
     required TResult orElse(),
   }) {
-    if (done != null) {
-      return done(this);
+    if (successful != null) {
+      return successful(this);
     }
     return orElse();
   }
 }
 
-abstract class _Done implements HomeState {
-  const factory _Done() = _$DoneImpl;
+abstract class _successful implements HomeState {
+  const factory _successful({required final UserEntity userEntity}) =
+      _$successfulImpl;
+
+  UserEntity get userEntity;
+  @JsonKey(ignore: true)
+  _$$successfulImplCopyWith<_$successfulImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$errorImplCopyWith<$Res> {
+  factory _$$errorImplCopyWith(
+          _$errorImpl value, $Res Function(_$errorImpl) then) =
+      __$$errorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errorMessage});
+}
+
+/// @nodoc
+class __$$errorImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$errorImpl>
+    implements _$$errorImplCopyWith<$Res> {
+  __$$errorImplCopyWithImpl(
+      _$errorImpl _value, $Res Function(_$errorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = null,
+  }) {
+    return _then(_$errorImpl(
+      null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$errorImpl implements _error {
+  const _$errorImpl(this.errorMessage);
+
+  @override
+  final String errorMessage;
+
+  @override
+  String toString() {
+    return 'HomeState.error(errorMessage: $errorMessage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$errorImpl &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errorMessage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$errorImplCopyWith<_$errorImpl> get copyWith =>
+      __$$errorImplCopyWithImpl<_$errorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(UserEntity userEntity) successful,
+    required TResult Function(String errorMessage) error,
+  }) {
+    return error(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(UserEntity userEntity)? successful,
+    TResult? Function(String errorMessage)? error,
+  }) {
+    return error?.call(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(UserEntity userEntity)? successful,
+    TResult Function(String errorMessage)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(errorMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_successful value) successful,
+    required TResult Function(_error value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_successful value)? successful,
+    TResult? Function(_error value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_successful value)? successful,
+    TResult Function(_error value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _error implements HomeState {
+  const factory _error(final String errorMessage) = _$errorImpl;
+
+  String get errorMessage;
+  @JsonKey(ignore: true)
+  _$$errorImplCopyWith<_$errorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
