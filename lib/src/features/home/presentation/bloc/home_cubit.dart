@@ -19,7 +19,6 @@ class HomeCubit extends Cubit<HomeState> {
     Result<UserEntity, String>? result = await userRepository.getUser();
     if (result is Success<UserEntity, String>) {
       final userEntity = result.value;
-      print(userEntity.mobileNumber);
       emit(HomeState.successful(userEntity: userEntity));
     } else if (result is Failure<UserEntity, String>) {
       emit(HomeState.error(result.errorMessage));

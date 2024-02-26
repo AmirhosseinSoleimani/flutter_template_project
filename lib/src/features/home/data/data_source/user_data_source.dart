@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:eks_khedamtresan/src/core/network/network.dart';
-import 'package:utility/utility.dart';
 import 'package:injectable/injectable.dart';
 import 'package:network_module/network_module.dart';
 import 'package:eks_khedamtresan/src/features/home/data/models/models.dart';
+import 'package:eks_khedamtresan/src/core/resources/resources.dart';
 
 @LazySingleton()
 class UserRemoteService with ApiBase<BaseSingleResponse> {

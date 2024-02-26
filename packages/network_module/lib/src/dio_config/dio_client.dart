@@ -10,8 +10,8 @@ class DioClient {
     dio = Dio(
         BaseOptions(
             responseType: ResponseType.json,
-            connectTimeout: ApiConfig.connectionTimeout,
-            receiveTimeout: ApiConfig.receiveTimeout
+            connectTimeout: Duration(seconds: 30),
+            receiveTimeout: Duration(seconds: 30),
         )
     )..interceptors.add(PrettyDioLogger());
   }
