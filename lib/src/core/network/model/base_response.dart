@@ -1,6 +1,3 @@
-import 'package:dio/dio.dart';
-import 'package:network_module/network_module.dart';
-
 class BaseResponse {
   final int? resultCode;
   final List<String>? failures;

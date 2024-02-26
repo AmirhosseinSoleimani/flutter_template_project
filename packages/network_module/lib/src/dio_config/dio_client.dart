@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:network_module/src/dio_config/pretty_dio_logger.dart';
-import 'package:utility/utility.dart';
 
 class DioClient {
   static final DioClient _instance = DioClient._internal();

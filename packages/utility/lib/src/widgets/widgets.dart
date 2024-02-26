@@ -5,7 +5,7 @@ class Label extends StatelessWidget {
   final String title;
   final TextStyle? textStyle;
   final TextAlign? textAlign;
-  const Label(this.title, {this.textStyle, this.textAlign, Key? key}) : super(key: key);
+  const Label(this.title, {this.textStyle, this.textAlign, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ImageWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final BoxFit? boxFit;
-  const ImageWidget({required this.path, Key? key, this.color, this.width, this.height, this.boxFit}) : super(key: key);
+  const ImageWidget({required this.path, super.key, this.color, this.width, this.height, this.boxFit});
 
   @override
   Widget build(BuildContext context) {
